@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULTRASITE 3.1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#080b16;color:white;font-family:Arial,sans-serif;overflow-x:hidden}
+header{position:sticky;top:0;z-index:10;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;background:#10172bef;backdrop-filter:blur(15px);border-bottom:1px solid #29365c}
+.logo{font-size:25px;font-weight:900;color:#00eaff;text-shadow:0 0 15px #00eaff;cursor:pointer}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:#aeb9d6;text-decoration:none;font-size:14px}
+nav a:hover{color:#00eaff}
+.hero{min-height:65vh;padding:40px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:radial-gradient(ellipse,#202e65,#080b16 70%)}
+.hero h1{font-size:clamp(45px,9vw,90px);background:linear-gradient(90deg,#00eaff,#925cff,#ff58c8);background-clip:text;color:transparent;font-weight:900}
+.hero p{color:#aab5d0;margin:20px}
+.version{color:#00eaff;border:1px solid #00eaff66;padding:9px 18px;border-radius:30px;margin-bottom:22px}
+section{padding:65px 7%}
+h2{text-align:center;font-size:32px;margin-bottom:30px}
+button{background:linear-gradient(100deg,#00cfff,#8054ff);color:white;border:0;border-radius:10px;padding:12px 20px;font-weight:bold;cursor:pointer;transition:.2s}
+button:hover{transform:translateY(-3px);filter:brightness(1.2)}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card,.game{background:linear-gradient(145deg,#18213c,#101529);border:1px solid #34456d;border-radius:18px;padding:24px;transition:.25s}
+.card:hover,.game:hover{border-color:#00eaff;transform:translateY(-4px)}
+.card h3{color:#00eaff;margin-bottom:12px}
+.card p,.description{color:#aab5ca;line-height:1.5}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.game h3{color:#00eaff;font-size:21px;margin-bottom:12px}
+.game p{color:#aab5ca;margin-bottom:15px;line-height:1.5}
+.game-display{min-height:125px;background:#0b1225;border:1px solid #293a62;border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:18px;margin:15px 0;text-align:center}
+.big{font-size:45px;font-weight:bold}
+.stats{color:#00eaff;margin:12px 0;font-weight:bold}
+#catchArea{width:100%;height:190px;position:relative;overflow:hidden;background:#101d38;border-radius:12px;border:1px solid #334b7a}
+.fruit{position:absolute;top:10px;font-size:35px;cursor:pointer;user-select:none;animation:fall 2.5s linear forwards}
+@keyframes fall{from{transform:translateY(0)}to{transform:translateY(210px)}}
+#reactionBox{width:100%;height:130px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#263654;font-weight:bold;cursor:pointer;user-select:none}
+.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:100%;max-width:260px}
+.memory button{height:55px;padding:0;font-size:25px;background:#293c68;border:1px solid #50659b}
+input{width:100%;padding:12px;background:#080e1d;border:1px solid #40517d;color:white;border-radius:9px;margin:10px 0;font-size:16px}
+.music{max-width:600px;margin:auto;background:#151e36;border:1px solid #34456d;border-radius:18px;padding:25px}
+audio{width:100%;margin-top:15px}
+.secret{display:none;color:#e0a0ff;margin-top:20px}
+footer{background:#10172a;border-top:1px solid #29365c;padding:30px;text-align:center;color:#8290af}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#172748;border:1px solid #00eaff;padding:15px 20px;border-radius:12px;display:none;z-index:30;text-align:center;width:max-content;max-width:90%}
+@keyframes rainbow{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+@keyframes godGlow{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center}section{padding:45px 5%}}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo" id="logo">ULTRA 67 🥭</div>
+ <nav><a href="#home">Главная</a><a href="#games">Игры</a><a href="#music">Музыка</a><a href="#secret">Секреты</a></nav>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="version">✦ ULTRASITE 3.1 ARCADE ✦</div>
+ <h1>ULTRASITE</h1>
+ <p>Твоя собственная цифровая вселенная.</p>
+ <button onclick="document.querySelector('#games').scrollIntoView()">ИГРАТЬ 🎮</button>
+</section>
+<section>
+ <h2>🌌 ЧТО НОВОГО?</h2>
+ <div class="cards">
+  <div class="card"><h3>🎮 ARCADE</h3><p>Четыре мини-игры прямо на сайте.</p></div>
+  <div class="card"><h3>🏆 RECORDS</h3><p>Твои лучшие игровые результаты.</p></div>
+  <div class="card"><h3>🎵 MUSIC</h3><p>Музыка прямо в браузере.</p></div>
+  <div class="card"><h3>🔐 SECRETS</h3><p>Скрытые сообщения и пасхалки.</p></div>
+ </div>
+</section>
+<section id="games">
+ <h2>🎮 ULTRA ARCADE</h2>
+ <div class="games-grid">
+  <div class="game"><h3>🥭 MANGO CATCH</h3><p>Лови манго за 20 секунд!</p><div class="stats">Очки: <span id="catchScore">0</span> | Время: <span id="catchTime">20</span></div><button onclick="startCatch()">НАЧАТЬ</button><div id="catchArea"></div></div>
+  <div class="game"><h3>⚡ REACTION TEST</h3><p>Нажми на экран, когда он станет зелёным.</p><div id="reactionBox" onclick="reactionClick()">НАЖМИ СТАРТ</div><div class="stats" id="reactionResult">Результат: —</div><button onclick="startReaction()">СТАРТ</button></div>
+  <div class="game"><h3>🔢 GUESS NUMBER</h3><p>Я загадал число от 1 до 100. Угадай его!</p><input id="guessInput" type="number" min="1" max="100" placeholder="Твоё число"><button onclick="guessNumber()">ПРОВЕРИТЬ</button><div class="game-display" id="guessResult">❓ Какое число я загадал?</div></div>
+  <div class="game"><h3>🧠 MEMORY GAME</h3><p>Найди все одинаковые пары карточек.</p><div class="stats">Ходы: <span id="moves">0</span></div><div class="memory" id="memoryBoard"></div><br><button onclick="startMemory()">НОВАЯ ИГРА</button><div id="memoryResult" class="stats"></div></div>
+ </div>
+</section>
+<section id="music">
+ <h2>🎵 ULTRA MUSIC</h2>
+ <div class="music"><h3>ULTRA MUSIC PLAYER</h3><p style="color:#aab5ca;margin:12px 0">Добавь MP3 в папку songs своего репозитория.</p><button onclick="playMusic(0)">TRACK 01</button> <button onclick="playMusic(1)">TRACK 02</button> <button onclick="playMusic(2)">TRACK 03</button><audio id="audio" controls></audio></div>
+</section>
+<section id="secret">
+ <h2>🔐 SECRET ZONE</h2>
+ <div class="music" style="text-align:center"><p>Введи секретный пароль...</p><input id="secretPassword" placeholder="Password"><button onclick="unlock()">РАЗБЛОКИРОВАТЬ</button><div class="secret" id="secretMessage"><h2>💀 MANGO 67 UNLOCKED</h2><div style="font-size:65px">🐷🥭💀</div><p>ТЫ НАСТОЯЩИЙ ЛЕГЕНДАРНЫЙ ИССЛЕДОВАТЕЛЬ!</p></div></div>
+</section>
+</main>
+<footer>ULTRASITE 3.1 © 2026<p style="margin-top:10px">POWERED BY 67 🥭</p></footer>
+<div id="toast"></div>
+<script>
+function notify(message){const t=document.getElementById("toast");t.textContent=message;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2500)}
+function saveRecord(key,value){try{let old=Number(localStorage.getItem(key)||0);if(value>old){localStorage.setItem(key,value);notify("🏆 НОВЫЙ РЕКОРД!")}}catch(e){}}
+
+let catchScore=0,catchTime=20,catchRunning=false,catchTimer,fruitTimer;
+function startCatch(){if(catchRunning)return;catchRunning=true;catchScore=0;catchTime=20;document.getElementById("catchScore").textContent=0;document.getElementById("catchTime").textContent=20;const area=document.getElementById("catchArea");area.innerHTML="";
+fruitTimer=setInterval(()=>{if(!catchRunning)return;const fruit=document.createElement("div");fruit.className="fruit";fruit.textContent="🥭";fruit.style.left=Math.random()*(area.clientWidth-45)+"px";fruit.onclick=()=>{if(!catchRunning)return;catchScore++;document.getElementById("catchScore").textContent=catchScore;fruit.remove()};area.appendChild(fruit);setTimeout(()=>fruit.remove(),2600)},550);
+catchTimer=setInterval(()=>{catchTime--;document.getElementById("catchTime").textContent=catchTime;if(catchTime<=0){clearInterval(catchTimer);clearInterval(fruitTimer);catchRunning=false;area.innerHTML="";saveRecord("mangoRecord",catchScore);notify("ИГРА ОКОНЧЕНА! 🥭 "+catchScore+" ОЧКОВ")}},1000)}
+
+let reactionState="idle",reactionStart=0,reactionTimeout;
+function startReaction(){clearTimeout(reactionTimeout);reactionState="waiting";const box=document.getElementById("reactionBox");box.style.background="#a65a30";box.textContent="ЖДИ ЗЕЛЁНОГО...";document.getElementById("reactionResult").textContent="Результат: —";reactionTimeout=setTimeout(()=>{if(reactionState!=="waiting")return;reactionState="ready";reactionStart=performance.now();box.style.background="#18a65a";box.textContent="ЖМИ!!!"},1500+Math.random()*3500)}
+function reactionClick(){const box=document.getElementById("reactionBox");if(reactionState==="waiting"){clearTimeout(reactionTimeout);reactionState="idle";box.style.background="#263654";box.textContent="СЛИШКОМ РАНО!";document.getElementById("reactionResult").textContent="Фальстарт!";return}if(reactionState==="ready"){const result=Math.round(performance.now()-reactionStart);reactionState="idle";box.style.background="#263654";box.textContent="РЕЗУЛЬТАТ: "+result+" MS";document.getElementById("reactionResult").textContent="Твоя реакция: "+result+" мс";notify("⚡ ТЕСТ ЗАВЕРШЁН!")}}
+
+let secretNumber=Math.floor(Math.random()*100)+1;
+function guessNumber(){const input=document.getElementById("guessInput");const value=Number(input.value);const result=document.getElementById("guessResult");if(!Number.isInteger(value)||value<1||value>100){result.textContent="Введи число от 1 до 100!";return}if(value===secretNumber){result.textContent="🎉 ПРАВИЛЬНО! ТЫ УГАДАЛ!";notify("ТЫ ПОБЕДИЛ! 💀");secretNumber=Math.floor(Math.random()*100)+1}else if(value<secretNumber){result.textContent="⬆️ МОЁ ЧИСЛО БОЛЬШЕ!"}else{result.textContent="⬇️ МОЁ ЧИСЛО МЕНЬШЕ!"}input.value=""}
+
+const symbols=["🥭","🐷","💀","🎮","🚀","⭐","🍕","🔥"];
+let firstCard=null,secondCard=null,locked=false,moves=0,matched=0;
+function startMemory(){const board=document.getElementById("memoryBoard");let cards=[...symbols,...symbols].sort(()=>Math.random()-.5);firstCard=null;secondCard=null;locked=false;moves=0;matched=0;document.getElementById("moves").textContent=0;document.getElementById("memoryResult").textContent="";board.innerHTML="";cards.forEach(symbol=>{const button=document.createElement("button");button.textContent="❔";button.dataset.symbol=symbol;button.onclick=()=>flipCard(button);board.appendChild(button)})}
+function flipCard(card){if(locked||card===firstCard||card.dataset.found==="yes")return;card.textContent=card.dataset.symbol;if(!firstCard){firstCard=card;return}secondCard=card;locked=true;moves++;document.getElementById("moves").textContent=moves;if(firstCard.dataset.symbol===secondCard.dataset.symbol){firstCard.dataset.found="yes";secondCard.dataset.found="yes";matched+=2;firstCard=null;secondCard=null;locked=false;if(matched===16){document.getElementById("memoryResult").textContent="🏆 ПОБЕДА! ХОДОВ: "+moves;notify("ТЫ ПРОШЁЛ MEMORY GAME!")}}else{setTimeout(()=>{firstCard.textContent="❔";secondCard.textContent="❔";firstCard=null;secondCard=null;locked=false},750)}}
+
+const tracks=["songs/track1.mp3","songs/track2.mp3","songs/track3.mp3"];
+function playMusic(index){const audio=document.getElementById("audio");audio.src=tracks[index];audio.play().catch(()=>notify("Проверь MP3-файл!"))}
+function unlock(){const password=document.getElementById("secretPassword").value;if(password.toUpperCase()==="MANGO67"){document.getElementById("secretMessage").style.display="block";notify("🔓 СЕКРЕТ ОТКРЫТ!")}else{notify("НЕВЕРНЫЙ ПАРОЛЬ 💀")}}
+
+let logoClicks=0,pigClicks=0,secretBuffer="",spaceCount=0,rCount=0;
+const logo=document.getElementById("logo");
+logo.addEventListener("click",()=>{logoClicks++;pigClicks++;if(logoClicks>=7){notify("🥭 ОКАК 67! ТЫ НАШЁЛ ПАСХАЛКУ!");logoClicks=0}if(pigClicks>=15){notify("🐷 PIG MODE ACTIVATED!");document.body.style.fontFamily="Comic Sans MS,cursive";pigClicks=0}});
+const konami=["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+let konamiIndex=0;
+document.addEventListener("keydown",e=>{
+ if(["INPUT","TEXTAREA"].includes(e.target.tagName))return;
+ if(e.key===konami[konamiIndex]){konamiIndex++;if(konamiIndex===konami.length){notify("👾 KONAMI CODE ACTIVATED!");document.body.style.filter="hue-rotate(130deg)";setTimeout(()=>document.body.style.filter="",5000);konamiIndex=0}}else{konamiIndex=0}
+ if(e.ctrlKey||e.altKey||e.metaKey||e.key.length!==1)return;
+ secretBuffer=(secretBuffer+e.key.toUpperCase()).slice(-20);
+ if(secretBuffer.endsWith("MANGO")){notify("🥭 MANGO MODE ACTIVATED!");document.body.style.background="#30230b"}
+ else if(secretBuffer.endsWith("ULTRA67")){notify("👑 ULTRA GOD MODE UNLOCKED!");document.body.style.animation="godGlow 1s infinite alternate"}
+ else if(secretBuffer.endsWith("RETRO")){notify("🕹️ WELCOME TO 1999!");document.body.style.fontFamily="monospace"}
+ else if(secretBuffer.endsWith("PIZZA"))notify("🍕 PIZZA TIME!");
+ else if(secretBuffer.endsWith("DEV")){notify("💻 DEVELOPER DETECTED!");console.log("ULTRASITE 3.1 - SECRET DEVELOPER MODE")}
+ else if(secretBuffer.endsWith("67"))notify("💀 SIX SEVENNNNN!");
+ if(e.key.toLowerCase()==="r"){rCount++;if(rCount>=5){notify("🌈 RAINBOW MODE!");document.querySelectorAll(".card,.game").forEach(el=>el.style.animation="rainbow 3s linear infinite");rCount=0}}
+ if(e.code==="Space"){spaceCount++;if(spaceCount>=7){notify("🚀 SPACE MODE ACTIVATED!");document.querySelector(".hero").style.background="radial-gradient(ellipse,#54216f,#080b16)";spaceCount=0}}
+});
+document.querySelector("footer").addEventListener("dblclick",()=>notify("🔮 ТЫ НАШЁЛ СЕКРЕТ ФУТЕРА!"));
+document.querySelector("#games h2").addEventListener("dblclick",()=>notify("👾 ARCADE MASTER FOUND!"));
+let backgroundClicks=0;
+document.querySelector(".hero").addEventListener("click",e=>{if(e.target.closest("button"))return;backgroundClicks++;if(backgroundClicks>=10){notify("🌌 SECRET SPACE DISCOVERED!");document.querySelector(".hero").style.background="radial-gradient(ellipse,#54216f,#080b16)";backgroundClicks=0}});
+console.log("%cULTRASITE 3.1 - THE MANGO NEVER DIES","font-size:24px;color:#00eaff;font-weight:bold");
+startMemory();
+</script>
+</body>
+</html>
